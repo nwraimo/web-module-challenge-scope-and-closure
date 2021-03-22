@@ -74,9 +74,10 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(inning){
-    
+function inning(/*Code Here*/){
+    /*Code Here*/
 }
+
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
