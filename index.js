@@ -95,9 +95,18 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, played){
+  let homeTeam = 0;
+  let awayTeam = 0;
+  for(let i = 0; i < played; i++){
+    homeTeam += inning();
+    awayTeam += inning();
+  }
+  let total = {'Home': homeTeam, 'Away': awayTeam}
+  return total;
 }
+
+console.log(finalScore(inning, 9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
