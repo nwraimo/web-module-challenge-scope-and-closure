@@ -14,9 +14,16 @@
 */
 
 function processFirstItem(stringList, callback) {
-  return callback(stringList[0])
+  return callback(stringList[0]) // line will see foofoo
 }
-console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
+
+// console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
+
+function addStrings(str){
+  return str + str;
+}
+
+console.log(processFirstItem(['foo', 'bar'], addStrings));
 
 // ⭐️ Example Challenge END ⭐️
 
@@ -28,12 +35,17 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
+  // counter1 is using a private variable and counter 2 is using a global variable
   
   2. Which of the two uses a closure? How can you tell?
+  // counter1 uses a closure because there is a function nested inside of another function
   
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     counter1 is preferable if you want access to the variable from within the closure, counter2 is preferable when you want external access to the variable.
 */
+
+// just like game function
 
 // counter1 code
 function counterMaker() {
