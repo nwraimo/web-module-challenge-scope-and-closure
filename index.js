@@ -64,6 +64,7 @@ function counter2() {
   return count++;
 }
 
+console.log('Task 1');
 
 /* ⚾️⚾️⚾️ Task 2: inning() ⚾️⚾️⚾️
 Use the inning function below to do the following:
@@ -78,7 +79,7 @@ function inning(){
     return Math.floor(Math.random() * Math.floor(3));
 }
 
-console.log(inning());
+console.log('Task 2', inning());
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -106,25 +107,25 @@ function finalScore(inning, played){
   return total;
 }
 
-console.log(finalScore(inning, 9));
+console.log('Task 3', finalScore(inning, 9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(inning) {
+function getInningScore(inningCb) {
   let homeTeam = 0;
   let awayTeam = 0;
-  homeTeam += inning();
-  awayTeam += inning();
+  homeTeam += inningCb();
+  awayTeam += inningCb();
   return {
     Home: homeTeam,
     Away: awayTeam
   };
 }
 
-console.log(getInningScore(inning));
+console.log('Task 4', getInningScore(inning));
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
@@ -167,11 +168,27 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(inn1, inn2, played) {
+  let score = [];
+  let homeTeam = 0;
+  let awayTeam = 0;
+  const game = getInningScore;
+  
+  for(let i = 1; i < played; i++){
+    inn2(inn1);
+    score.push(`Inning ${i}: Away ${game.awayTeam} - Home ${game.h}`);
+      homeTeam = homeTeam + game.homeTeam;
+      awayTeam = awayTeam + game.awayTeam;   
+}
+  if(homeTeam === awayTeam){
+    score.push(`This game will require extra innings: Away ${game.awayTeam} - Home ${game.homeTeam}`)
+  }else{
+    score.push(`Final Score: Away ${game.awayTeam} - Home ${game.homeTeam}`);
+  }
+  return score;
 }
 
-
+console.log('Task 5', scoreboard(getInningScore, inning, 9));
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
